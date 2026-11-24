@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { IMAGES } from "@/data/content";
 import { Navigation } from "./Navigation";
 import { MobileMenu } from "./MobileMenu";
@@ -25,13 +26,13 @@ export function Header() {
         className={cn(
           "fixed top-0 w-full z-50 transition-all duration-300",
           scrolled
-            ? "bg-surface/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(41,41,41,0.06)]"
-            : "bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(41,41,41,0.04)]"
+            ? "bg-surface/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(41,41,41,0.06)] border-b border-outline-variant/30"
+            : "bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(41,41,41,0.04)] border-b border-outline-variant/20"
         )}
       >
         <div className="h-20 w-full px-margin lg:px-margin-desktop flex items-center justify-between gap-gutter">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-space-md group">
+          <Link href="/" className="flex items-center gap-space-md group">
             <div className="relative h-8 w-8 sm:w-10 flex items-center justify-center">
               <img
                 src={IMAGES.logo}
@@ -39,10 +40,15 @@ export function Header() {
                 className="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </div>
-            <span className="font-headline-sm text-headline-sm text-on-surface tracking-tight hidden sm:inline-block font-medium">
-              Dentèle
-            </span>
-          </a>
+            <div className="flex flex-col">
+              <span className="font-headline-sm text-headline-sm text-on-surface tracking-tight hidden sm:inline-block font-medium leading-none">
+                Dentèle
+              </span>
+              <span className="font-label-sm text-[10px] tracking-wider uppercase text-on-surface-variant hidden sm:inline-block mt-0.5">
+                Specialist Dental Centre
+              </span>
+            </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden xl:block">
@@ -51,13 +57,13 @@ export function Header() {
 
           {/* Right Action Icons */}
           <div className="flex items-center gap-space-sm">
-            <a
-              href="#book"
+            <Link
+              href="/#book"
               className="hidden sm:inline-flex items-center gap-space-xs font-label-lg text-label-lg bg-primary hover:bg-on-surface text-on-primary px-space-lg py-space-sm rounded-full transition-all duration-300 shadow-[0_8px_24px_-4px_rgba(41,41,41,0.04)] hover:-translate-y-0.5"
             >
               <span>Book Appointment</span>
               <ArrowUpRight className="w-4 h-4" />
-            </a>
+            </Link>
 
             {/* Menu Toggle */}
             <button

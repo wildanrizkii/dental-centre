@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/data/content";
 import { cn } from "@/lib/utils";
 
@@ -10,35 +12,35 @@ interface NavigationProps {
 }
 
 export function Navigation({ className, onLinkClick }: NavigationProps) {
-  const [activePath, setActivePath] = useState("Home");
+  const pathname = usePathname();
 
   return (
     <nav
       className={cn(
-        "flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-low shadow-[0_2px_6px_-1px_rgba(183,168,154,0.08)]",
+        "flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-low shadow-[0_2px_6px_-1px_rgba(183,168,154,0.08)] border border-outline-variant/30",
         className
       )}
     >
       {NAV_LINKS.map((link) => {
-        const isActive = activePath === link.label;
+        const isActive =
+          link.href === "/"
+            ? pathname === "/"
+            : pathname.startsWith(link.href) && link.href !== "/";
         return (
-          <a
+          <Link
             key={link.label}
             href={link.href}
-            onClick={() => {
-              setActivePath(link.label);
-              if (onLinkClick) onLinkClick();
-            }}
+            onClick={onLinkClick}
             className={cn(
               "px-space-md py-space-sm rounded-full transition-colors font-label-lg text-label-lg",
               isActive
-                ? "bg-secondary-container text-on-secondary-fixed font-bold"
+                ? "bg-secondary-container text-on-secondary-fixed font-bold shadow-xs"
                 : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50"
             )}
             aria-current={isActive ? "page" : undefined}
           >
             {link.label}
-          </a>
+          </Link>
         );
       })}
     </nav>

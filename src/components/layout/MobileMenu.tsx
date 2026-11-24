@@ -1,9 +1,12 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { NAV_LINKS } from "@/data/content";
 import { ArrowUpRight, Phone, Clock, MapPin } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -11,6 +14,8 @@ interface MobileMenuProps {
 }
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+  const pathname = usePathname();
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -36,36 +41,47 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             <div className="flex flex-col gap-6">
               {/* Navigation Links */}
               <div className="flex flex-col gap-1">
-                {NAV_LINKS.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    onClick={onClose}
-                    className="flex items-center justify-between px-4 py-3 rounded-2xl text-on-surface hover:bg-surface-container-low font-headline-sm transition-colors"
-                  >
-                    <span>{link.label}</span>
-                    <ArrowUpRight className="w-4 h-4 text-on-surface-variant" />
-                  </a>
-                ))}
+                {NAV_LINKS.map((link) => {
+                  const isActive =
+                    link.href === "/"
+                      ? pathname === "/"
+                      : pathname.startsWith(link.href) && link.href !== "/";
+                  return (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      onClick={onClose}
+                      className={cn(
+                        "flex items-center justify-between px-4 py-3 rounded-2xl font-headline-sm transition-colors",
+                        isActive
+                          ? "bg-secondary-container text-on-secondary-fixed font-semibold"
+                          : "text-on-surface hover:bg-surface-container-low"
+                      )}
+                    >
+                      <span>{link.label}</span>
+                      <ArrowUpRight className="w-4 h-4 text-on-surface-variant" />
+                    </Link>
+                  );
+                })}
               </div>
 
               {/* Action Buttons */}
               <div className="flex flex-col gap-3 pt-4 border-t border-surface-container">
-                <a
-                  href="#book"
+                <Link
+                  href="/#book"
                   onClick={onClose}
                   className="flex items-center justify-center gap-2 font-label-lg bg-primary hover:bg-on-surface text-on-primary py-3.5 px-6 rounded-full transition-colors shadow-md text-sm"
                 >
                   <span>Book Appointment</span>
                   <ArrowUpRight className="w-4 h-4" />
-                </a>
+                </Link>
 
                 <a
-                  href="tel:+442079460912"
+                  href="tel:+442079460880"
                   className="flex items-center justify-center gap-2 font-label-lg bg-surface-container-low hover:bg-surface-container text-on-surface py-3 px-6 rounded-full transition-colors text-sm"
                 >
                   <Phone className="w-4 h-4 text-secondary" />
-                  <span>Concierge: (020) 7946 0912</span>
+                  <span>Concierge: (020) 7946 0880</span>
                 </a>
               </div>
 
@@ -73,7 +89,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               <div className="pt-2 text-xs text-on-surface-variant flex flex-col gap-2">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-3.5 h-3.5 text-secondary shrink-0" />
-                  <span>Harley Medical District, W1G 9QD</span>
+                  <span>18 Harley Medical District, W1G 8PZ</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock className="w-3.5 h-3.5 text-secondary shrink-0" />

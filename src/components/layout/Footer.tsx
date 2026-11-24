@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { IMAGES } from "@/data/content";
 
 export function Footer() {
@@ -8,7 +9,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter lg:gap-gutter-desktop pb-space-2xl">
           {/* Brand Info */}
           <div className="lg:col-span-4 flex flex-col items-start gap-space-md">
-            <div className="flex items-center gap-space-md">
+            <Link href="/" className="flex items-center gap-space-md">
               <img
                 alt="Dentèle Specialist Dental Logo"
                 className="h-8 w-auto object-contain brightness-0 invert"
@@ -17,9 +18,9 @@ export function Footer() {
               <span className="font-headline-md text-headline-md text-inverse-on-surface tracking-tight font-medium">
                 Dentèle
               </span>
-            </div>
+            </Link>
             <p className="font-body-md text-body-md text-surface-variant/80 max-w-sm">
-              Exceptional dental care crafted with precision and empathy.
+              Exceptional dental care crafted with precision, biological continuity, and human comfort.
             </p>
             <div className="flex items-center gap-space-sm pt-space-sm">
               <span className="font-label-sm text-label-sm text-secondary-fixed bg-secondary/30 px-space-md py-space-xs rounded-full uppercase tracking-wider">
@@ -35,36 +36,36 @@ export function Footer() {
             </h3>
             <ul className="flex flex-col gap-space-xs font-body-sm text-body-sm text-surface-variant/80">
               <li>
-                <a
+                <Link
                   className="hover:text-inverse-on-surface transition-colors"
-                  href="#treatments"
+                  href="/treatments"
                 >
                   Cosmetic Dentistry
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-inverse-on-surface transition-colors"
-                  href="#treatments"
+                  href="/treatments"
                 >
                   Dental Implants
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-inverse-on-surface transition-colors"
-                  href="#treatments"
+                  href="/treatments"
                 >
                   Orthodontics
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-inverse-on-surface transition-colors"
-                  href="#treatments"
+                  href="/treatments"
                 >
                   Veneers
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -76,44 +77,44 @@ export function Footer() {
             </h3>
             <ul className="flex flex-col gap-space-xs font-body-sm text-body-sm text-surface-variant/80">
               <li>
-                <a
+                <Link
                   className="hover:text-inverse-on-surface transition-colors"
-                  href="#about"
+                  href="/about-us"
                 >
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-inverse-on-surface transition-colors"
-                  href="#specialists"
+                  href="/specialists"
                 >
                   Specialists
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-inverse-on-surface transition-colors"
-                  href="#facilities"
+                  href="/facilities"
                 >
                   Facilities
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-inverse-on-surface transition-colors"
-                  href="#careers"
+                  href="/#about"
                 >
                   Careers
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-inverse-on-surface transition-colors"
-                  href="#articles"
+                  href="/#articles"
                 >
                   Journal
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -125,36 +126,36 @@ export function Footer() {
             </h3>
             <ul className="flex flex-col gap-space-xs font-body-sm text-body-sm text-surface-variant/80">
               <li>
-                <a
+                <Link
                   className="hover:text-inverse-on-surface transition-colors"
-                  href="#first-visit"
+                  href="/#first-visit"
                 >
                   First Visit
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-inverse-on-surface transition-colors"
-                  href="#pricing"
+                  href="/#pricing"
                 >
                   Pricing &amp; Plans
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-inverse-on-surface transition-colors"
-                  href="#emergency"
+                  href="/#emergency"
                 >
                   Emergency
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-inverse-on-surface transition-colors"
-                  href="#faq"
+                  href="/#faq"
                 >
                   FAQ
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -166,11 +167,11 @@ export function Footer() {
             </h3>
             <address className="not-italic flex flex-col gap-space-xs font-body-sm text-body-sm text-surface-variant/80">
               <p>
-                14 Harlow Court, Harley Street
+                18 Harley Medical District
                 <br />
-                London, W1G 9QD
+                Marylebone, London W1G 8PZ
               </p>
-              <p>+44 (0) 20 7946 0912</p>
+              <p>+44 (0) 20 7946 0880</p>
               <p>concierge@dentele.co.uk</p>
               <p>Mon – Sat: 08:30 – 19:00</p>
             </address>
@@ -180,27 +181,27 @@ export function Footer() {
         {/* Bottom Legal Row */}
         <div className="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md border-t border-white/10">
           <p className="font-body-sm text-body-sm text-surface-variant/60">
-            &copy; 2024 Dentèle Specialist Dental Centre. All rights reserved.
+            &copy; 2025 Dentèle Specialist Dental Centre. Registered in England &amp; Wales. Harley Street Medical Area.
           </p>
           <div className="flex items-center gap-space-md">
-            <a
+            <Link
               className="font-body-sm text-body-sm text-surface-variant/70 hover:text-inverse-on-surface transition-colors"
-              href="#privacy"
+              href="/#privacy"
             >
               Privacy Policy
-            </a>
-            <a
+            </Link>
+            <Link
               className="font-body-sm text-body-sm text-surface-variant/70 hover:text-inverse-on-surface transition-colors"
-              href="#terms"
+              href="/#terms"
             >
-              Terms of Service
-            </a>
-            <a
+              Terms of Care
+            </Link>
+            <Link
               className="font-body-sm text-body-sm text-surface-variant/70 hover:text-inverse-on-surface transition-colors"
-              href="#clinical"
+              href="/#clinical"
             >
-              Clinical Compliance
-            </a>
+              CQC Regulated
+            </Link>
           </div>
         </div>
       </div>
