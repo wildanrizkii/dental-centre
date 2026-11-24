@@ -27,8 +27,39 @@
     margin-bottom: 0 !important;
   }
 
+  /* Custom luxury scrollbar */
   ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f6f3f2;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #b7a89a;
+    border-radius: 9999px;
+    border: 2px solid #f6f3f2;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #685c50;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #b7a89a #f6f3f2;
+  }
+
+  /* Utility for hiding scrollbar where intentionally needed (e.g. horizontal chips) */
+  .no-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
