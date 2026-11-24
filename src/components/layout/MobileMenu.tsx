@@ -3,7 +3,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NAV_LINKS } from "@/data/content";
-import { ArrowUpRight, Phone, Clock, MapPin, X } from "lucide-react";
+import { ArrowUpRight, Phone, Clock, MapPin } from "lucide-react";
 
 interface MobileMenuProps {
   isOpen: boolean;

@@ -2,7 +2,6 @@
 
 import React from "react";
 import { IMAGES } from "@/data/content";
-import { ArrowUpRight, ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function Hero() {

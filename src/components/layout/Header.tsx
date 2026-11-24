@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import { IMAGES } from "@/data/content";
 import { Navigation } from "./Navigation";
 import { MobileMenu } from "./MobileMenu";
